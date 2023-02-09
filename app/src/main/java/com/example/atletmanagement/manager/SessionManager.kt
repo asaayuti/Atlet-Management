@@ -1,4 +1,4 @@
-package com.techplus.gymmanagement.manager
+package com.example.atletmanagement.manager
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -29,8 +29,8 @@ class SessionManager(private var _context:Context) {
     companion object{
         private val TAG = SessionManager::class.java.simpleName
         //Shared preferences file name
-        private val PREF_NAME = "Login"
+        private const val PREF_NAME = "Login"
         var KEY_USER_ID = "user_id"
-        private val KEY_IS_LOGGED_IN = "isLoggedIn"
+        private const val KEY_IS_LOGGED_IN = "isLoggedIn"
     }
 }

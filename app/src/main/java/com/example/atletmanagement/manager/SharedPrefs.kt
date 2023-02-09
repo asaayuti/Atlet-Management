@@ -1,9 +1,9 @@
-package com.techplus.gymmanagement.manager
+package com.example.atletmanagement.manager
 
 import android.content.Context
 import android.content.SharedPreferences
 
-public class SharedPrefs {
+class SharedPrefs {
     private val TAG = SharedPrefs::class.java.simpleName
 
     companion object{
@@ -12,7 +12,7 @@ public class SharedPrefs {
         var user_mobile = "user_mobile"
         var user_type = "user_type"
 
-        private val SHARED_PREFS_FILE_NAME = "MyData"
+        private const val SHARED_PREFS_FILE_NAME = "MyData"
         private fun getPrefs(context:Context): SharedPreferences{
             return context.getSharedPreferences(SHARED_PREFS_FILE_NAME,Context.MODE_PRIVATE)
         }

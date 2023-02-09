@@ -1,15 +1,19 @@
 package com.example.atletmanagement
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import com.example.atletmanagement.activity.HomeActivity
 import com.example.atletmanagement.activity.LoginActivity
 import com.example.atletmanagement.databinding.ActivityMainBinding
-import com.techplus.gymmanagement.global.DB
-import com.techplus.gymmanagement.manager.SessionManager
+import com.example.atletmanagement.global.DB
+import com.example.atletmanagement.manager.SessionManager
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     private var mDelayHandler: Handler? = null
     private val splash_delay: Long = 3000
@@ -25,15 +29,26 @@ class SplashScreenActivity : AppCompatActivity() {
         session = SessionManager(this)
 
         insertAdminData()
-        mDelayHandler = Handler()
+        mDelayHandler = Handler(Looper.getMainLooper())
         mDelayHandler?.postDelayed(mRunnable, splash_delay)
+
     }
 
     private val mRunnable: Runnable = Runnable {
+        if(session?.isLoggedIn == true){
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }else {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+
     }
 
     private fun insertAdminData() {

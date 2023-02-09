@@ -1,13 +1,12 @@
-package com.techplus.gymmanagement.global
+package com.example.atletmanagement.global
 
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.atletmanagement.global.SqlTable
 import java.lang.Exception
 
-class DB(val context:Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_VERSION) {
+class DB(private val context:Context) : SQLiteOpenHelper(context, DB_NAME,null, DB_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase) {
 
